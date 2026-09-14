@@ -698,13 +698,9 @@ def apply_patch_megatron_npu_p2p_shape():
         send_next_shape_tensor = None
 
         if recv_prev:
-            recv_prev_shape_tensor = torch.empty(
-                (3,), device=torch.cuda.current_device(), dtype=torch.int64
-            )
+            recv_prev_shape_tensor = torch.empty((3,), device=torch.cuda.current_device(), dtype=torch.int64)
         if recv_next:
-            recv_next_shape_tensor = torch.empty(
-                (3,), device=torch.cuda.current_device(), dtype=torch.int64
-            )
+            recv_next_shape_tensor = torch.empty((3,), device=torch.cuda.current_device(), dtype=torch.int64)
         if tensor_send_prev is not None:
             send_prev_shape_tensor = torch.tensor(
                 tensor_send_prev.size(), device=torch.cuda.current_device(), dtype=torch.int64
